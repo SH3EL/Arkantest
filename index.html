@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="أركان ليكس للمحاماة والاستشارات القانونية — نقدم خدمات قانونية متكاملة للأفراد والشركات في المملكة العربية السعودية بخبرة تزيد عن 15 عاماً.">
+    <meta name="keywords" content="محاماة، استشارات قانونية، محامي السعودية، قضايا عقارية، تأسيس شركات، أركان ليكس">
+    <meta name="author" content="أركان ليكس">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="أركان ليكس - للمحاماة والاستشارات القانونية">
+    <meta property="og:description" content="حلول قانونية مبتكرة لحماية حقوقكم ومصالحكم.">
+    <meta property="og:image" content="SIgn.png">
+    <meta property="og:type" content="website">
+
+    <title>أركان ليكس - محاماة واستشارات قانونية في المملكة العربية السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- شاشة التحميل -->
+    <div id="preloader">
+        <img src="SIgn.png" alt="جاري التحميل...">
+    </div>
+<!-- Popup تنبيه النسخة التجريبية -->
+<div id="betaOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;animation:fadeInOverlay 0.6s ease forwards;">
+    <div style="background:#fff;border-radius:16px;padding:45px 40px;max-width:500px;width:90%;text-align:center;font-family:'Tajawal',sans-serif;position:relative;border-top:4px solid #2d9b5a;opacity:0;animation:fadeInBox 0.6s ease 0.3s forwards;overflow:hidden;">
+
+        <!-- جسيمات الخلفية -->
+        <canvas id="betaCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:0.15;"></canvas>
+
+        <!-- أيقونة صيانة تنبض -->
+        <div style="position:relative;width:70px;height:70px;margin:0 auto 20px;">
+            <div id="pulseRing" style="position:absolute;top:50%;left:50%;width:70px;height:70px;border-radius:50%;border:2px solid #2d9b5a;transform:translate(-50%,-50%);animation:pulseRing 1.8s ease-out infinite;"></div>
+            <div style="width:70px;height:70px;background:#f0f7f4;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #2d9b5a;position:relative;z-index:1;">
+                <i id="gearIcon" class="fas fa-cog" style="font-size:28px;color:#2d9b5a;animation:spinGear 3s linear infinite;"></i>
+            </div>
+        </div>
+
+        <!-- عنوان مع أيقونات متحركة -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;">
+            <i class="fas fa-wrench" style="color:#2d9b5a;font-size:16px;animation:wrenchWiggle 1.5s ease-in-out infinite;"></i>
+            <h3 style="color:#0d3b2e;font-size:1.35rem;font-weight:700;margin:0;">قيد الصيانة والتطوير</h3>
+            <i class="fas fa-wrench" style="color:#2d9b5a;font-size:16px;animation:wrenchWiggle 1.5s ease-in-out infinite 0.3s;transform:scaleX(-1);"></i>
+        </div>
+
+        <p style="color:#555;font-size:0.93rem;line-height:1.9;margin-bottom:25px;">
+            هذا الموقع في مرحلة المعاينة الأولى قبل التعديلات النهائية.<br>
+            <strong style="color:#0d3b2e;">بعض التفاصيل قد تتغير.</strong>
+        </p>
+
+        <!-- شريط تقدم متحرك -->
+        <div style="background:#f0f7f4;border-radius:20px;height:6px;margin-bottom:25px;overflow:hidden;">
+            <div style="height:100%;background:linear-gradient(90deg,#0d3b2e,#2d9b5a);border-radius:20px;animation:progressBar 2.5s ease-in-out infinite alternate;"></div>
+        </div>
+
+        <!-- خط فاصل -->
+        <div style="border-top:1px solid #eee;margin-bottom:18px;"></div>
+
+        <!-- توقيع مع typing effect -->
+        <p style="font-size:0.75rem;color:#aaa;margin-bottom:6px;letter-spacing:2px;text-transform:uppercase;">Developed by</p>
+        <p style="font-size:1.05rem;font-weight:700;color:#0d3b2e;margin-bottom:4px;">مشعل الأمير</p>
+        <p id="typingText" style="font-size:0.88rem;color:#2d9b5a;margin-bottom:22px;letter-spacing:1px;min-height:22px;font-family:monospace;"></p>
+
+        <!-- زر -->
+        <button onclick="closeBeta()" id="betaBtn" style="background:#0d3b2e;color:#fff;border:none;padding:13px 40px;border-radius:8px;font-size:1rem;font-family:'Tajawal',sans-serif;cursor:pointer;font-weight:700;transition:all 0.3s;letter-spacing:0.5px;position:relative;overflow:hidden;" onmouseover="this.style.background='#2d9b5a';this.style.transform='scale(1.05)'" onmouseout="this.style.background='#0d3b2e';this.style.transform='scale(1)'">
+            <i class="fas fa-check" style="margin-left:8px;"></i> حسناً، فهمت
+        </button>
+    </div>
+</div>
+
+<style>
+@keyframes fadeInOverlay { from{opacity:0} to{opacity:1} }
+@keyframes fadeInBox { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeOutOverlay { from{opacity:1} to{opacity:0;visibility:hidden} }
+@keyframes spinGear { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes pulseRing { 0%{transform:translate(-50%,-50%) scale(1);opacity:0.8} 100%{transform:translate(-50%,-50%) scale(1.9);opacity:0} }
+@keyframes wrenchWiggle { 0%,100%{transform:rotate(-15deg)} 50%{transform:rotate(15deg)} }
+@keyframes progressBar { from{width:30%} to{width:95%} }
+#betaOverlay.hide { animation:fadeOutOverlay 0.5s ease forwards; }
+</style>
+
+<script>
+// Typing effect
+const texts = ['Meshal Alameer', 'Web Developer', 'مشعل الأمير — مبرمج مواقع'];
+let ti = 0, ci = 0, del = false;
+function typeEffect() {
+    const el = document.getElementById('typingText');
+    if (!el) return;
+    const cur = texts[ti];
+    if (!del) {
+        el.textContent = cur.substring(0, ci++);
+        if (ci > cur.length) { del = true; setTimeout(typeEffect, 1500); return; }
+    } else {
+        el.textContent = cur.substring(0, ci--);
+        if (ci < 0) { del = false; ti = (ti + 1) % texts.length; ci = 0; }
+    }
+    setTimeout(typeEffect, del ? 60 : 100);
+}
+setTimeout(typeEffect, 1000);
+
+// Canvas particles
+window.addEventListener('load', () => {
+    const canvas = document.getElementById('betaCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    const dots = Array.from({length: 18}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+    }));
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        dots.forEach(d => {
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+            ctx.fillStyle = '#2d9b5a';
+            ctx.fill();
+            d.x += d.dx; d.y += d.dy;
+            if (d.x < 0 || d.x > canvas.width) d.dx *= -1;
+            if (d.y < 0 || d.y > canvas.height) d.dy *= -1;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+});
+
+function closeBeta() {
+    const overlay = document.getElementById('betaOverlay');
+    overlay.classList.add('hide');
+    setTimeout(() => overlay.style.display = 'none', 500);
+}
+</script>
+    <!-- شريط التنقل -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="SIgn.png" alt="شعار أركان ليكس">
+                    <img src="arkan.jpg" alt="اسم شركة أركان ليكس" class="logo-text">
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+                <div class="burger" id="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي (Hero) -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>العدالة ركننا الراسخ</h2>
+            <p>نقدم حلولاً قانونية مبتكرة وشاملة لحماية حقوقكم ومصالحكم بكل احترافية.</p>
+            <a href="contact.html" class="btn btn-primary">احجز استشارتك الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="row">
+                <div class="col-image">
+                    <img src="11.png" alt="مكتب المحاماة">
+                </div>
+                <div class="col-text">
+                    <h3 class="section-title">من نحن</h3>
+                    <p>شركة آركان ليكس محامون ومستشارون قانونيون نقدم خدمات قانونية متكاملة للأفراد والشركات، وفق أعلى المعايير المهنية، نعمل على حماية مصالح عملائنا وتقديم الاستشارات والتمثيل القانوني بكفاءة.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> خبرة تمتد لأكثر من 15 عاماً.</li>
+                        <li><i class="fas fa-check-circle"></i> فريق متخصص في كافة القضايا.</li>
+                        <li><i class="fas fa-check-circle"></i> سرية تامة وشفافية في التعامل.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- قسم الرؤية والرسالة -->
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="icon-box">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون مرجعاً قانونياً موثوقاً يواكب رؤية المملكة 2030، من خلال تقديم حلول قانونية عاجلة تدعم بيئة الأعمال، وتسهم في تحقيق أعلى معايير الاحترافية.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="icon-box">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>رسالتنا</h3>
+                    <p>أن نكون شركة رائدة من خلال حفظ حقوق عملائنا وتحقيقها بأسرع وقت ممكن، مع تمكين العميل من الإحاطة الكاملة بسير قضيته، من خلال تواصل واضح وإجراءات قانونية دقيقة تعكس أعلى معايير المهنية والشفافية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h3 class="section-title center">خدماتنا القانونية</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-gavel"></i>
+                    <h4>الاستشارات القانونية</h4>
+                    <p>تقديم استشارات قانونية دقيقة ومبنية على الأنظمة المعمول بها في المملكة العربية السعودية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h4>التقاضي</h4>
+                    <p>تمثيل العملاء أمام جميع الجهات القضائية وشبه القضائية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h4>الشركات</h4>
+                    <p>تأسيس الشركات وصياغة الهيكلة القانونية، وتقديم الاستشارات المستمرة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h4>القضايا العقارية</h4>
+                    <p>حل النزاعات العقارية وتوثيق عقود البيع والشراء والإيجار.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h4>صياغة العقود</h4>
+                    <p>صياغة ومراجعة العقود التجارية والمدنية بدقة واحترافية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>التحكيم والوساطة</h4>
+                    <p>حل النزاعات بطرق بديلة سريعة وفعّالة بعيداً عن المحاكم.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>قضايا العمل</h4>
+                    <p>تمثيل أصحاب العمل والموظفين في النزاعات العمالية أمام الجهات المختصة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>الملكية الفكرية</h4>
+                    <p>حماية براءات الاختراع والعلامات التجارية وحقوق المؤلف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="SIgn.png" alt="أركان ليكس" class="footer-logo">
+                    <p>شريكك القانوني الموثوق لتحقيق العدالة.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>الصفحات</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> 966-50-000-0000+</p>
+                    <p><i class="fas fa-envelope"></i> info@arkanlex.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2024 أركان ليكس</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
